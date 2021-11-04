@@ -1,0 +1,33 @@
+service: returns-project-test-mentory
+
+plugins:
+  - serverless-offline
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  region: us-west-2
+  runtime: nodejs14.x
+  httpApi:
+    cors: true
+  timeout: 30
+  memorySize: 128
+  stage: ${opt.stage, 'dev'}
+  lambdaHashingVersion: '20201221'
+
+functions:
+  returnsReadEmails:
+    handler: src/handler.get
+    name: 'returns-project-test-mentory'
+    description: 'Return Project Test Mentory'
+    events:
+      - httpApi:
+          path: /products/{id}
+          method: get
+  returnsFunctionsTwo:
+    handler: src/handler.save
+    events:
+      - httpApi:
+          path: /products
+          method: post

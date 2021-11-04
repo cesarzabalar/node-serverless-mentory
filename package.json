@@ -1,0 +1,25 @@
+{
+  "name": "mentoria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lint && node src/index.js",
+    "api": "sls offline",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/* --fix",
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14",
+    "prettier": "2.4.1"
+  },
+  "dependencies": {
+    "serverless-offline": "^8.2.0"
+  }
+}

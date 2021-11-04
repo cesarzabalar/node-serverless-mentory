@@ -1,1 +1,1 @@
-# node-serverless-mentory
+# Basic template config project node.js with Serverless
