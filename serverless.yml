@@ -1,32 +1,39 @@
-service: returns-project-test-mentory
+service: returns-test-mentory
+frameworkVersion: '2'
+useDotenv: true
 
 plugins:
   - serverless-offline
-
-frameworkVersion: '2'
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
   region: us-west-2
   runtime: nodejs14.x
+  stage: ${opt:stage,'dev'}
   httpApi:
     cors: true
   timeout: 30
   memorySize: 128
-  stage: ${opt.stage, 'dev'}
   lambdaHashingVersion: '20201221'
 
 functions:
   returnsReadEmails:
     handler: src/handler.get
-    name: 'returns-project-test-mentory'
-    description: 'Return Project Test Mentory'
+    name: 'returns-test-get-${self:provider.stage}'
+    description: 'Return Project Test GET'
+    environment:
+      NAME_PROJECT: ${env:NAME_PROJECT}
     events:
       - httpApi:
           path: /products/{id}
           method: get
   returnsFunctionsTwo:
     handler: src/handler.save
+    name: 'returns-test-post-${self:provider.stage}'
+    description: 'Return Project Test POST'
+    environment:
+      NAME_PROJECT: ${env:NAME_PROJECT}
     events:
       - httpApi:
           path: /products
