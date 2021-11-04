@@ -8,6 +8,8 @@
     "api": "sls offline",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/* --fix",
+    "prettier-format": "prettier --config .prettierrc.json ./src/**/*.js --write",
+    "format": "npm run prettier-format && npm run lint",
     "test": "jest --coverage"
   },
   "keywords": [],
