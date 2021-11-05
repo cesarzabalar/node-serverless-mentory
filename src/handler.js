@@ -11,7 +11,11 @@ const get = async (event) => {
 	const url = `${config.NASA_API}sol=${params.id}&api_key=${config.API_KEY}`;
 
 	try {
-		const response = await request(url);
+		const headers = {
+			'Content-Type': 'multipart/form-data; boundary=something',
+			Authorization: 'APIKEY4877555669998877788999',
+		};
+		const response = await request(url, null, headers);
 		return success(response.photos[0]);
 	} catch (err) {
 		return error(err.message);

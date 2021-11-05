@@ -1,6 +1,8 @@
 const axios = require('axios').default;
 
-module.exports = async (url, params, headers, method = 'GET') => {
+module.exports = async (url, params, headerss, method = 'GET') => {
+	const headers = { 'Content-Type': 'application/json', ...headerss };
+
 	const options = {
 		method,
 		url,
