@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "mongoose": "^6.0.12",
     "serverless-dotenv-plugin": "^3.10.0",
     "serverless-offline": "^8.2.0"
   }

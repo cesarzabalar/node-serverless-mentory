@@ -8,4 +8,5 @@ module.exports = {
 	USER_DB: process.env.USER_DB,
 	NASA_API: process.env.NASA_API,
 	API_KEY: process.env.API_KEY,
+	DB_CONNECTION: process.env.DB_CONNECTION,
 };
