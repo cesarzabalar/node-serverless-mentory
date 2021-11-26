@@ -1,13 +1,13 @@
-import express, { Application, Request, Response } from 'express';
-const app: Application = express();
-const port = 3000;
+import config from './config';
+import Server from './server';
 
-app.get('/', (req: Request, res: Response) => {
-	//if (4 === 4) res.send('same');
-	res.send('HomePage');
-});
+// const main = async () => {
+// 	const server = new Server(config);
+// 	console.log('test1');
+// 	await server.run();
+// 	console.log('test2');
+// };
 
-app.listen(port, () => {
-	// eslint-disable-next-line no-console
-	console.log(`server is listening on ${port}`);
-});
+// main();
+
+new Server(config).run();

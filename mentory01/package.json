@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lint && node src/index.js",
+    "start": "node src/index.js",
     "api": "sls offline",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/* --fix",
