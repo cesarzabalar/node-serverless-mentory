@@ -4,20 +4,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const home_router_1 = __importDefault(require("./routers/home.router."));
+const logger_1 = __importDefault(require("./utils/logger"));
+const loaders_1 = __importDefault(require("./loaders"));
 class Server {
-    constructor() {
+    constructor(config) {
+        this.config = config;
         this.app = (0, express_1.default)();
-        this.routers();
+        this.loaders();
     }
-    routers() {
-        this.app.use('/', (0, home_router_1.default)());
+    async loaders() {
+        (0, loaders_1.default)(this.app);
     }
-    start(port) {
-        this.app.listen(port, () => {
-            // eslint-disable-next-line no-console
-            console.log(`server is running on port ${port}`);
-        });
+    run() {
+        try {
+            this.app.listen(this.config.PORT);
+            logger_1.default.info(`server is running on port ${this.config.PORT}`);
+        }
+        catch (err) {
+            logger_1.default.error(err);
+            process.exit(1);
+        }
     }
 }
 exports.default = Server;

@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { IConfig } from '../interfaces/config.interface';
+import { IConfig } from '../interfaces/IConfig.interface';
 
 if (process.env.NODE_ENV !== 'prod') {
 	dotenv.config();

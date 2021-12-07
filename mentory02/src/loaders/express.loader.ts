@@ -32,6 +32,6 @@ export default (app: Application) => {
 
 	app.use(routes());
 
-	// NorFound handler and error handler
+	// NotFound handler and errorHandler
 	app.use(notFoundMiddleware).use(errorMiddleware);
 };

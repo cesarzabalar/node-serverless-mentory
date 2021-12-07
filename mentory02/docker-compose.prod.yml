@@ -1,0 +1,8 @@
+version: '3.7'
+
+#Overwrite the before docker-compose file, only the propeties named
+services:
+  ts-node-docker:
+    build:
+      target: production
+    command: node dist/index.js

@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  ts-node-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+      target: base
+    volumes:
+      - ./src/:/home/node/app/src
+    container_name: ts-node-docker
+    environment:
+      - NODE_ENV
+      - PORT
+    expose:
+      - '3001'
+      - '3005'
+    ports:
+      - '8080:3001'
+      - '9090:3005'
+    command: npm run dev
+  

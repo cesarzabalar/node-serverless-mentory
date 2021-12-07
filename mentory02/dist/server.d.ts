@@ -1,8 +1,9 @@
 import { Application } from 'express';
-declare class Server {
+import { IConfig } from './interfaces/config.interface';
+export default class Server {
+    private config;
     app: Application;
-    constructor();
-    routers(): void;
-    start(port: string): void;
+    constructor(config: IConfig);
+    private loaders;
+    run(): void;
 }
-export default Server;

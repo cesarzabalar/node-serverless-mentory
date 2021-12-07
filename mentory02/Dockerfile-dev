@@ -1,0 +1,19 @@
+# Multi stage
+#1. Development stage
+FROM mhart/alpine-node:14 as base
+
+WORKDIR /home/node/app
+
+COPY package*.json .
+
+RUN npm i
+
+COPY . .
+
+
+#2. Production stage
+FROM base as production
+
+ENV NODE_PATH=./dist
+
+RUN npm run build

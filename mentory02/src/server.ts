@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import { IConfig } from './interfaces/config.interface';
+import { IConfig } from './interfaces/IConfig.interface';
 import Logger from './utils/logger';
 import Loaders from './loaders';
 
